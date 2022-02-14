@@ -32,11 +32,13 @@ ord.Z68_ORDER_STATUS AS workflowStatus,
 -- ord.Z68_ORDER_NUMBER_1, ord.Z68_ORDER_NUMBER_2,
 'true' AS reEncumber,
 '{self.schoolcode}' AS acqUnitIds,
-CONCAT('order Group: ', ord.Z68_ORDER_GROUP) AS orderNote1,
-CONCAT('library_note: ' , ord.Z68_LIBRARY_NOTE) AS orderNote2,
-CONCAT('e-note: ', ord.z68_e_note) AS orderNote3,
-CONCAT('fund name: ' , budName.fundName) AS orderNote4,
-CONCAT('vendor note: ',ord.z68_vendor_note ) AS orderNote5,
+
+
+ ord.Z68_ORDER_GROUP AS orderNote1,
+ord.Z68_LIBRARY_NOTE AS orderNote2,
+ord.z68_e_note AS orderNote3,
+budName.fundName AS orderNote4,
+ord.z68_vendor_note AS orderNote5,
 ord.z68_subscription_date_from AS subscriptionFrom,
 ord.z68_subscription_date_to AS subscriptionTo,
 ord.Z68_SUBSCRIPTION_RENEW_DATE AS renewalDate,
@@ -96,4 +98,4 @@ AND ord.Z68_OPEN_DATE > 20190701)'''
 
 if __name__ == '__main__':
     x = query('AC')
-    print(x.querystring)
+    print(x)
