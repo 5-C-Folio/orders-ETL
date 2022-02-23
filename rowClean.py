@@ -36,12 +36,23 @@ def update_values(row):
         row.update({'checkinItems': 'Independent order and receipt quantity'})
     else:
         row.update({'checkinItems':'Synchronized order and receipt quantity'})
-    
+    if row['ORDERTYPE'] == 'O':
+        row.update({"isSubscription": False})
+    elif row['ORDERTYPE'] == 'S':
+        row.update({"isSubscription": True})
     row.update({'WORKFLOWSTATUS': 'Pending'})
     row.update({'manualPo': True})
+    if int(row['RENEWALDATE']) < 20220223:
+        row.update({'RENEWALDATE': 20991231})
     return row
+
+
 
 def process(row):
     row = row_clean(row)
     row = update_values(row)
     return row
+
+
+
+

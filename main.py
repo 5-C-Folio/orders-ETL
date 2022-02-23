@@ -18,7 +18,7 @@ if __name__ == "__main__":
     result = conn.get_orders()
     column_headers = conn.headers
     del column_headers[7:12]
-    column_headers  =  column_headers +['notes','checkinItems', 'manualPo']
+    column_headers  =  column_headers +['notes','checkinItems', 'manualPo', 'isSubscription']
     print(column_headers)
     with open('dictOutput.csv', 'w', newline='', encoding='utf8') as target:
         dictwrite = DictWriter(target, fieldnames=column_headers)
