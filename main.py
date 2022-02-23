@@ -1,20 +1,27 @@
-'''run all the things'''
+"""run all the things"""
 from csv import DictWriter
-from Oracle import dbQuery
+from Oracle import DatabaseQuery
 from Query import query
-from rowClean import cleanRow
+from rowClean import process
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
     print('working...')
-    conn = dbQuery(str(query("AC")))
-    conn.orders
-    headers = ([x[0] for x in conn.headers])
-    del headers[7:12]
-    headers.append('notes')
-    print(headers)
-    with open('dictOutput.csv','w', newline='', encoding='utf8') as target:
-        dictwrite = DictWriter(target, fieldnames=headers)
+    conn = DatabaseQuery(str(query("SC")))
+    result = conn.get_orders()
+    column_headers = conn.headers
+    del column_headers[7:12]
+    column_headers  =  column_headers +['notes','checkinItems', 'manualPo']
+    print(column_headers)
+    with open('dictOutput.csv', 'w', newline='', encoding='utf8') as target:
+        dictwrite = DictWriter(target, fieldnames=column_headers)
         dictwrite.writeheader()
-        for line in conn.orders:
-            dictwrite.writerow(cleanRow(line))
+        for line in result:
+            dictwrite.writerow(process(line))

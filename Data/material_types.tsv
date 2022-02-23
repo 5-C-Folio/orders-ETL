@@ -1,0 +1,93 @@
+Material_Type	School_code	aleph_name	FOLIO	order_type
+A	SC	Audio	Audio CD	physical
+AG	SC	Aggregator	Database	electronic
+B	SC	Book	Book	physical
+C	SC	Cartographic	Map	physical
+D	SC	Data File	Data File	electronic
+DB	SC	Database	Database	electronic
+E	SC	Electronic	?	electronic
+EB	SC	E-book	E-Book	electronic
+EJ	SC	E-journal	E-Journal	electronic
+M	SC	Microform	Microform	physical
+N	SC	Newspaper	Newspaper	physical
+P	SC	Periodical	Journal	physical
+R	SC	CD-ROM	CD-ROM	physical
+S	SC	Series	Serial	physical
+V	SC	Video	DVD/Blu-ray	physical
+Z	SC	Score	Score	physical
+EB	AC	E-Book	E-Book	electronic
+AD 	AC	Admin bib suppressed	Admin	electronic
+DB	AC	Database	Database	electronic
+DS	AC	Dataset	Data File	electronic
+EK	AC	E-Book Package	E-Book Package	electronic
+EJ 	AC	E-Journal	E-Journal	electronic
+EP	AC	E-Journal Package	E-Journal Package	electronic
+EN	AC	E-Newspaper	E-Newspaper	electronic
+ES	AC	E-Score	E-Score	electronic
+SA	AC	Streaming Audio	Streaming Audio	electronic
+SV	AC	Streaming Video	Streaming Video	electronic
+M	AC	Monograph	Book	physical
+A	AC	Audio CD	Audio CD	physical
+SC	AC	Score	Score	physical
+V	AC	Video DVD/Blu-ray	DVD/Blu-ray	physical
+MF	AC	Microfilm	Microform	physical
+NP	AC	Newspaper	Newspaper	physical
+SW	AC	Spoken Word	Spoken Word	physical
+S	AC	Serial	Serial	physical
+E	HC	Electronic Monograph	E-Book	electronic
+O	HC	Online Serial (& Online+Print)	E-Journal	electronic
+Z	HC	Other Electronic	Database	electronic
+A	HC	Audio	Audio CD	physical
+M	HC	Print Monograph	Book	physical
+S	HC	Print Serial	Serial	physical
+V	HC	Video	DVD/Blu-ray	physical
+X	HC	Other Substantive	Equipment	physical
+A	MH	Audio	Audio CD	physical
+AD	MH	Admin	Admin	electronic
+B	MH	Printed Book	Book	physical
+DB	MH	Database	Database	electronic
+DS	MH	Dataset	Data File	electronic
+EB	MH	E-Book	E-Book	electronic
+EJ	MH	E-Journal	E-Journal	electronic
+EK	MH	E-Book Package	E-Book Package	electronic
+EN	MH	E-Newspaper	E-Newspaper	electronic
+EP	MH	E-Journal Package	E-Journal Package	electronic
+EQ	MH	Equipment	Equipment	physical
+ER	MH	Electronic-Remote	Database	electronic
+ES	MH	E-Score	E-Score	electronic
+M	MH	Microform	Microform	physical
+MM	MH	Multi-Media	CD-ROM	physical
+NP	MH	Newspaper	Newspaper	physical
+P	MH	Print Periodical	Journal	physical
+SA	MH	Streaming Audio	Streaming Audio	electronic
+SC	MH	Score	Score	physical
+SV	MH	Streaming Video	Streaming Video	electronic
+T	MH	Thesis or Honors Paper	Thesis/Dissertation	physical
+V	MH	Videorecording	DVD/Blu-ray	physical
+2D	UM	2D Graphic	Image	physical
+AC	UM	Audiocassette	Audiocassette	physical
+AR	UM	Archival material	Archival Material	physical
+CD	UM	CD-ROM	CD-ROM	physical
+CN	UM	Continuation	Serial	physical
+DB	UM	Database	Database	electronic
+DV	UM	DVD	DVD/Blu-ray	physical
+EB	UM	E-book	E-Book	electronic
+EJ	UM	E-journal	E-Journal	electronic
+EP	UM	E-book Package	E-Book Package	electronic
+FL	UM	Film (16 or 35 mm)	Film	physical
+GP	UM	Government Publication (Federal or State)	Government Publication	physical
+IM	UM	Image	Image	physical
+IS	UM	Instructional Software	Admin	electronic
+JP	UM	Journal Package	E-Journal Package	electronic
+LP	UM	LP Phonorecord	LP Phonorecord	physical
+M	UM	Book	Book	physical
+MC	UM	Music CD	Audio CD	physical
+MF	UM	Microform	Microform	physical
+MP	UM	Map	Map	physical
+NE	UM	Newspaper	Newspaper	physical
+PJ	UM	Print Journal	Journal	physical
+SC	UM	Music Score	Music Score	physical
+SE	UM	Serial	Serial	physical
+ST	UM	Streaming file	Streaming Video or Streaming Audio?	electronic
+T	UM	Tools	Admin	physical
+TH	UM	Thesis	Thesis/Dissertation	physical

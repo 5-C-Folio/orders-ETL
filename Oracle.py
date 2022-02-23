@@ -3,10 +3,8 @@ import cx_Oracle as db
 db.init_oracle_client(lib_dir=r"C:\\oracle\\instantclient_12_1")
 
 
-
-
-class dbQuery():
-    '''run query and return dictonary results.  also headers'''
+class DatabaseQuery():
+    """run query and return dictonary results.  also headers"""
     def __init__(self, querystring='',
                 user= login['user'],
                 password = login["password"],
@@ -20,16 +18,16 @@ class dbQuery():
 
     @property
     def connection(self):
-        '''produce connection string.  Should make this inherit from connection object'''
+        """produce connection string.  Should make this inherit from connection object"""
         return db.connect( user = self.user,
                     password = self.password,
                     dsn = self.dsn)
-    @property
-    def orders(self):
-        '''run query, store headers, make reesults dict'''
+
+    def get_orders(self):
+        """run query, store headers, make results dict"""
         cursor = self.connection.cursor()
         cursor.execute(self.querystring)
-        self.headers = cursor.description
+        self.headers = ([x[0] for x in cursor.description])
         cursor.rowfactory = lambda *args: dict(zip([d[0] for d in cursor.description],args))
         return cursor.fetchall()
 

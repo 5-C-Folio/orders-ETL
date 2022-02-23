@@ -4,10 +4,9 @@ class query():
     def __init__(self, schoolCode): 
         self.schoolcode = schoolCode
 
-
-
     @property
     def alephcode(self):
+
         schoolCodeMaps = {
             'AC': 'AMH',
             'MH': 'MHC',
@@ -17,8 +16,6 @@ class query():
         }
         return schoolCodeMaps[self.schoolcode]
 
-
-    
     def __str__(self):
         return f'''
 SELECT
@@ -42,7 +39,8 @@ ord.z68_vendor_note AS orderNote5,
 ord.z68_subscription_date_from AS subscriptionFrom,
 ord.z68_subscription_date_to AS subscriptionTo,
 ord.Z68_SUBSCRIPTION_RENEW_DATE AS renewalDate,
-ord.z68_method_of_aquisition AS acquisitionMethod,
+--AQUISITION is misspelled in the database.  do not
+ord.z68_method_of_AQUISITION AS acquisitionMethod,
 ord.z68_invoice_status AS paymentStatus,
 
 ord.z68_vendor_reference_no AS referenceNo,
@@ -54,7 +52,7 @@ ord.z68_ORDER_DATE,
 ord.Z68_NO_UNITS AS quantityX,
 ord.Z68_UNIT_PRICE AS listUnitPrice, 
 
-ord.Z68_ORDER_STATUS_DATE_X,
+--ord.Z68_ORDER_STATUS_DATE_X,
 
 rr.Z13_TITLE,
 rr.author,
