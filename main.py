@@ -21,7 +21,7 @@ if __name__ == "__main__":
     column_headers  =  column_headers +['notes','checkinItems', 'manualPo', 'isSubscription']
     print(column_headers)
     with open('dictOutput.csv', 'w', newline='', encoding='utf8') as target:
-        dictwrite = DictWriter(target, fieldnames=column_headers)
+        dictwrite = DictWriter(target, fieldnames=column_headers, delimiter = '\t')
         dictwrite.writeheader()
         for line in result:
             dictwrite.writerow(process(line))

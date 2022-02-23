@@ -42,7 +42,7 @@ def update_values(row):
         row.update({"isSubscription": True})
     row.update({'WORKFLOWSTATUS': 'Pending'})
     row.update({'manualPo': True})
-    if int(row['RENEWALDATE']) < 20220223:
+    if int(row['RENEWALDATE']) < 20220223 and int(row['RENEWALDATE']) != 0 :
         row.update({'RENEWALDATE': 20991231})
     return row
 
