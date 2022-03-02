@@ -52,7 +52,7 @@ ord.z68_ORDER_DATE,
 ord.Z68_NO_UNITS AS quantityX,
 ord.Z68_UNIT_PRICE AS listUnitPrice, 
 
---ord.Z68_ORDER_STATUS_DATE_X,
+ord.Z68_ORDER_STATUS_DATE_X,
 
 rr.Z13_TITLE,
 rr.author,
@@ -83,16 +83,15 @@ SELECT ordnum, SUBSTR(Z601_REC_KEY ,0, 50) AS fundName FROM
 ) budName
 ON rr.ADM_N = budname.ordnum
 WHERE
-(ord.Z68_ORDER_TYPE = 'S'
-AND ord.Z68_ORDER_STATUS = 'SV'
-)
+ord.Z68_ORDER_STATUS = 'SV'
 OR
-(ord.Z68_ORDER_TYPE = 'O'
-AND ord.Z68_ORDER_STATUS = 'SV')
-OR
-(ord.Z68_ORDER_TYPE = 'M'
-AND ord.Z68_ORDER_STATUS = 'SV'
-AND ord.Z68_OPEN_DATE > 20190701)'''
+(
+ord.Z68_ORDER_TYPE in ('O', 'S')
+and
+ord.Z68_ORDER_STATUS in ('LC', 'VC')
+and
+ord.Z68_ORDER_STATUS_DATE_X >= 20180701
+)'''
 
 if __name__ == '__main__':
     x = query('AC')
