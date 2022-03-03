@@ -120,7 +120,7 @@ def reason_close(row):
         row.update({"WORKFLOWSTATUS": "Closed"})
         row.update({
             "closeReason":
-            f"Vendor Cancelled {row['Z68_ORDER_STATUS_DATE_X']}"
+            f"Vendor Cancelled"
         })
         row.update({
             "closeReasonNote":
