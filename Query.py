@@ -50,9 +50,9 @@ ord.z68_target_text AS requestor,
 ord.Z68_OPEN_DATE,
 ord.z68_ORDER_DATE,
 ord.Z68_NO_UNITS AS quantityX,
-ord.Z68_UNIT_PRICE AS listUnitPrice, 
+ord.Z68_E_LOCAL_PRICE AS listUnitPrice, 
 
---ord.Z68_ORDER_STATUS_DATE_X,
+ord.Z68_ORDER_STATUS_DATE_X,
 
 rr.Z13_TITLE,
 rr.author,

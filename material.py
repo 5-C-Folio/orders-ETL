@@ -370,5 +370,10 @@ order_materials = {
     "SMH":[
         "Serial",
         "physical"
+    ],
+
+    "VCUM": [
+        "Videocassette",
+        "physical"
     ]
 }

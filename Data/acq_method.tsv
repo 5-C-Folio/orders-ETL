@@ -1,0 +1,82 @@
+school	code	folio
+HC	P	Purchase
+HC	G	Gift
+HC	CR	Purchase
+HC	M	Purchase
+HC	DP	Purchase
+HC	PP	Purchase
+HC	F	Gift
+HC	CW	Purchase
+HC	O	Purchase
+MH	A	Purchase at vendor system
+MH	B	Purchase at vendor system
+MH	CC	Purchase at vendor system
+MH	CW	Purchase at vendor system
+MH	D	Purchase at vendor system
+MH	E	Purchase at vendor system
+MH	F	Purchase at vendor system
+MH	G	Purchase at vendor system
+MH	P	Purchase at vendor system
+MH	PP	Purchase at vendor system
+MH	SO	Purchase at vendor system
+MH	SU	Purchase at vendor system
+MH	O	Purchase at vendor system
+UM	P	Purchase
+UM	G	Gift
+UM	AF	Purchase
+UM	PF	Purchase
+UM	A	Approval
+UM	DA	Purchase
+UM	D	Purchase
+UM	PX	Gift
+UM	NL	Purchase
+UM	E	Exhcange
+UM	EP	Exchage
+UM	PE	Purchase
+UM	FP	Gift
+UM	FP	Gift
+UM	M	Purchase
+UM	MT	Purchase
+UM	CC	Purchase
+SC	P	Purchase
+SC	A	Approval Plan
+SC	SO	Purchase
+SC	SU	Purchase
+SC	G	Gift
+SC	B	Purchase
+SC	C	Purchase
+SC	CR	Purchase
+SC	CW	Purchase
+SC	D	Purchase
+SC	DE	Depository
+SC	M	Purchase
+SC	PX	Gift
+SC	Q	Purchase
+SC	NL	Purchase
+SC	DP	Purchase
+SC	PC	Purchase
+SC	PP	Purchase
+SC	E	Exchange
+SC	ER	Exchange
+SC	ES	Exchange
+SC	F	Gift
+AC	P	Purchase
+AC	G	Gift
+AC	A	Approval Plan
+AC	B	Purchase
+AC	C	Purchase
+AC	CR	Purchase
+AC	CW	Purchase
+AC	D	Purchase
+AC	DE	Depository
+AC	M	Purchse
+AC	PX	Gift
+AC	Q	Purchase
+AC	NL	Purchase
+AC	DP	Purchase
+AC	PC	Purchase
+AC	PP	Purchase
+AC	E	Exchange
+AC	ER	Exchange
+AC	ES	Exchange
+AC	F	Gift

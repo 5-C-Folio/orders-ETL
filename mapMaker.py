@@ -2,17 +2,13 @@
 from csv import DictReader
 import json
 
-with open('Data/material_types.tsv','r', encoding='utf8') as tsv:
+with open('Data/acq_method.tsv', 'r', encoding='utf8') as tsv:
     output = {}
     target_tsv = DictReader(tsv, delimiter='\t')
     for row in target_tsv:
-        mergeName = row['Material_Type'].rstrip() + row['School_code'].rstrip()
-        x = [row['FOLIO'], row['order_type']]
+        mergeName = row['code'].rstrip() + row['school'].rstrip()
+        x = row['folio']
         output.update({mergeName: x})
-    
-    target  = open('Data/material.py','w') 
-    json.dump(output,target, indent=4)
 
-
-
-
+    target = open('Data/acq_method.py', 'w')
+    json.dump(output, target, indent=4)
