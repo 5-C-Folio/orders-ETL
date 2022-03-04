@@ -18,6 +18,7 @@ class query():
 
     def __str__(self):
         return f'''
+        --mh query
 SELECT
 '{self.schoolcode}' AS poNumberPrefix,
 ord.Z68_Order_NUMBER AS poNumber,

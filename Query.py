@@ -18,7 +18,9 @@ class query():
 
     def __str__(self):
         return f'''
+        
 SELECT
+--ac/um/sc query
 '{self.schoolcode}' AS poNumberPrefix,
 ord.Z68_Order_NUMBER AS poNumber,
 --SUBSTR(ord.Z68_REC_KEY,0,9),

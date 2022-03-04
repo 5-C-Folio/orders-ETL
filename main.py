@@ -1,12 +1,28 @@
 """run all the things"""
 from csv import DictWriter
 from Oracle import DatabaseQuery
-from QueryMH import query
+from Query import query
 from rowClean import process
+from sys import argv
+from datetime import datetime
 
 if __name__ == "__main__":
-    print('working...')
-    conn = DatabaseQuery(str(query("HC")))
+    
+    school_code = argv[1]
+    if school_code not in ['AC', 'MH', 'HC', 'SC', 'UM']:
+        print('invalid code')
+    if school_code == 'MH':
+        from QueryMH import query
+    elif school_code == 'HC':
+        from Queryham import query
+    else:
+        from Query import query
+
+
+    print(query(school_code))
+    now = datetime.now()
+
+    conn = DatabaseQuery(str(query(school_code)))
     result = conn.get_orders()
     column_headers = conn.headers
     del column_headers[7:12]
@@ -15,11 +31,11 @@ if __name__ == "__main__":
         'materialType', 'closeReason', "closeReasonNote", 'paymentStatus', 'receiptStatus'
     ]
     print(column_headers)
-    with open('dictOutput.csv', 'w', newline='', encoding='utf8') as target:
+    with open(f'{school_code}-acq-{now.strftime("%b-%d-%H")}.csv', 'w', newline='', encoding='utf8') as target:
         dictwrite = DictWriter(target,
                                fieldnames=column_headers,
                                delimiter=',')
         dictwrite.writeheader()
         for line in result:
             dictwrite.writerow(process(line))
-            print('writing')
+    

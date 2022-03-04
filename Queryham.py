@@ -18,6 +18,7 @@ class query():
 
     def __str__(self):
         return f'''
+        --ham query
 SELECT
 'HC' AS poNumberPrefix,
 ord.Z68_Order_NUMBER AS poNumber,
