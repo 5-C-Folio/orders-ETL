@@ -1,3 +1,4 @@
+from typing import Type
 from material import order_materials
 from functools import lru_cache
 from Acq_method import acq_methods
@@ -33,16 +34,15 @@ def method_map(method, ACQUNITIDS):
 
 def pay_receipt(row):
     if row['WORKFLOWSTATUS'] in ['LC ', 'VC ']:
-        row.update({'paymentStatus': 'fully paid', 'receiptStatus' : 'fully received'})
+        row.update({
+            'paymentStatus': 'fully paid',
+            'receiptStatus': 'fully received'
+        })
     elif row['ORDERTYPE'] == 'M' and row['WORKFLOWSTATUS'].rstrip() == 'SV':
-        row.update({'paymentStatus': 'pending', 'receiptStatus' : 'pending'})
+        row.update({'paymentStatus': 'pending', 'receiptStatus': 'pending'})
     else:
-        row.update({'paymentStatus': '', 'receiptStatus' : ''})
+        row.update({'paymentStatus': '', 'receiptStatus': ''})
     return row
-
-
-
-
 
 
 def row_clean(row):
@@ -75,23 +75,32 @@ def update_values(row):
         row.update({"isSubscription": False})
     elif row['ORDERTYPE'] == 'S':
         row.update({"isSubscription": True})
-    if row["PONUMBERPREFIX"] == 'MH' and row["ORDERTYPE"] in ["S", "O"] and row["WORKFLOWSTATUS"] == 'SV ':
+    if row["PONUMBERPREFIX"] == 'MH' and row["ORDERTYPE"] in [
+            "S", "O"
+    ] and row["WORKFLOWSTATUS"] == 'SV ':
         row.update({'RENEWALDATE': '20991231'})
     row.update({'manualPo': True})
     if int(row['RENEWALDATE']) < 20220223 and int(
             row['RENEWALDATE']) != 0 and row["WORKFLOWSTATUS"] == 'SV ':
         row.update({'RENEWALDATE': 20991231})
-    orderFormat, orderMaterial = material_map(row['ORDERFORMAT'],
-                                             row['ACQUNITIDS'])
-    try:                                         
-        row.update({
-        'LISTUNITPRICE':
-        f'{int(row["LISTUNITPRICE"][:-2])}.{row["LISTUNITPRICE"][-2:]}'
-    })
-    except:
-        pass
+    orderFormat, orderMaterial = material_map(row['ORDERFORMAT'], row['ACQUNITIDS'])
     row.update(orderFormat)
     row.update(orderMaterial)
+    try:
+        if len(row["Z68_ISBN"]) <13 and len(row["Z68_ISBN"]) != 0 :
+            row.update({'productIdType':'ISSN'})
+        elif len(row["Z68_ISBN"]) >=13 and len(row["Z68_ISBN"]) != 0 :
+            row.update({'productIdType':'ISBN'})
+    except TypeError:
+        row.update({'productIdType':''})
+    try:
+        row.update({
+            'LISTUNITPRICE':
+            f'{int(row["LISTUNITPRICE"][:-2])}.{row["LISTUNITPRICE"][-2:]}'
+        })
+    except:
+        pass
+    
     row.update({
         'ACQUISITIONMETHOD':
         method_map(row['ACQUISITIONMETHOD'].rstrip(), row['ACQUNITIDS'])
@@ -118,10 +127,7 @@ def reason_close(row):
         row.update({'REENCUMBER': False})
     elif row['WORKFLOWSTATUS'] == 'VC ':
         row.update({"WORKFLOWSTATUS": "Closed"})
-        row.update({
-            "closeReason":
-            f"Vendor Cancelled"
-        })
+        row.update({"closeReason": f"Vendor Cancelled"})
         row.update({
             "closeReasonNote":
             f"Vendor Cancelled {row['Z68_ORDER_STATUS_DATE_X']}"

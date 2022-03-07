@@ -26,9 +26,11 @@ if __name__ == "__main__":
     result = conn.get_orders()
     column_headers = conn.headers
     del column_headers[7:12]
+    column_headers.remove("ORDERFORMAT")
+    column_headers.remove("Z68_ORDER_STATUS_DATE_X")
     column_headers = column_headers + [
         'notes', 'checkinItems', 'manualPo', 'isSubscription', 'orderFormat',
-        'materialType', 'closeReason', "closeReasonNote", 'paymentStatus', 'receiptStatus'
+        'materialType', 'closeReason', "closeReasonNote", 'paymentStatus', 'receiptStatus', 'productIdType'
     ]
     print(column_headers)
     with open(f'{school_code}-acq-{now.strftime("%b-%d-%H")}.csv', 'w', newline='', encoding='utf8') as target:
